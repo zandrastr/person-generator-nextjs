@@ -27,12 +27,23 @@ export default async function Page({ params }: Params) {
   const [age, gender, country] = await Promise.all([ageData, genderData, countryData]);
 
   return (
-    <main>
-      <h1> Person Generator Result</h1>
-      <p>Name: {params.name}</p>
-      <p>Age: {age?.age}</p>
-      <p>Gender: {gender?.gender}</p>
-      <p>Country: {country?.country[0]?.country_id}</p>
+    <main className='h-full flex flex-col items-center justify-center'>
+      <div className='p-8 rounded-lg bg-blue-950 shadow-xl'>
+        <h1 className='text-4xl font-bold tracking-wide uppercase'> Person Generator</h1>
+        <h2 className='text-l font-bold tracking-wide uppercase mb-8'>- Result -</h2>
+        <p>
+          <span className='font-bold'>Name:</span> {params.name}
+        </p>
+        <p>
+          <span className='font-bold'>Age:</span> {age?.age}
+        </p>
+        <p>
+          <span className='font-bold'>Gender:</span> {gender?.gender}
+        </p>
+        <p>
+          <span className='font-bold'>Country:</span> {country?.country[0]?.country_id}
+        </p>
+      </div>
     </main>
   );
 }
